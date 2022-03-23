@@ -1,0 +1,57 @@
+<% layout('layouts/boilerplate') %>
+
+<% 
+    // const workout = ['UFC', 'Body Weight', 'Cardio', 'Warm Up', 'Stretching', 'Yoga'];
+    const workout = {
+        'UFC': ['img', '/ufc'],
+        'Body Weight': ['img', '/bodyweight'],
+        'Cardio': ['img', 'cardio'],
+        'Warm Up': ['img', 'warmup'],
+        'Stretching': ['img', 'stretching'],
+        'Yoga': ['img', 'yoga'],
+    }
+
+    const btnColor = () => {
+        let col = ['primary', 'success', 'danger', 'secondary', 'info', 'warning'];
+    let color = `btn-outline-${col[Math.floor(Math.random() * col.length) + 1]}`;
+    return color;
+    }
+    
+%> 
+
+<main id="main">
+    <section id="team" class="team">
+        <div class="container">
+  
+          <div class="section-title">
+            <h2>Welcome To meFIT</h2>
+            <p>Alpha version of the app just like the person who made this. &#128540;</p>
+          </div>
+  
+          <div class="row gy-4">
+
+            <% for(let i in workout) { %>
+                <div class="col-lg-4 col-md-6">
+                    <div class="member">
+                      <!-- <img src="<%= workout[i][1] %>" alt=""> -->
+                      <h2> <%= i %> </h2>
+                      <!-- <span>workout</span> -->
+                      <!-- <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus provident corporis sunt placeat commodi tempore adipisci rem alias, at vero? Ad fugiat repellat mollitia deserunt amet nulla expedita, incidunt corrupti?
+                      </p> -->
+                      <div class="social">
+                        <a href="<%= workout[i][1] %>" class= 'btn <%= btnColor() %> '>Start Now</a>
+                        <!-- <a href=""><i class="bi bi-twitter"></i></a>
+                        <a href=""><i class="bi bi-facebook"></i></a>
+                        <a href=""><i class="bi bi-instagram"></i></a>
+                        <a href=""><i class="bi bi-linkedin"></i></a> -->
+                      </div>
+                    </div>
+                  </div>
+            <% } %>  
+  
+          </div>
+  
+        </div>
+      </section>
+</main>
